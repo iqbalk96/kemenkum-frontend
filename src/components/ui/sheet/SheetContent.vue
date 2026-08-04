@@ -9,7 +9,7 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/shared/lib/utils.ts"
+import { cn } from "@/lib/utils"
 import SheetOverlay from "./SheetOverlay.vue"
 
 interface SheetContentProps extends DialogContentProps {
