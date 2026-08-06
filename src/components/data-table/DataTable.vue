@@ -8,6 +8,7 @@ import {
   type ColumnFiltersState,
   type SortingState,
   useVueTable,
+  getPaginationRowModel,
 } from "@tanstack/vue-table";
 
 import type { DataTableProps } from "./types";
@@ -21,6 +22,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import DataTableToolbar from "./DataTableToolbar.vue";
+import DataTablePagination from "./DataTablePagination.vue";
+import DataTableSkeleton from "./DataTableSkeleton.vue";
 
 const props = defineProps<DataTableProps<TData>>();
 
@@ -63,13 +66,21 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
   getSortedRowModel: getSortedRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
 });
 </script>
 
 <template>
   <div class="space-y-4">
     <DataTableToolbar :table="table" search-column="name" />
-    <div class="rounded-md border">
+
+    <DataTableSkeleton
+      v-if="props.loading"
+      :columns="props.columns.length"
+      :rows="10"
+    />
+
+    <div v-else class="rounded-md border">
       <Table>
         <TableHeader>
           <TableRow
@@ -106,5 +117,9 @@ const table = useVueTable({
         </TableBody>
       </Table>
     </div>
+    <DataTablePagination
+      v-if="!props.loading"
+      :table="table"
+    />
   </div>
 </template>
