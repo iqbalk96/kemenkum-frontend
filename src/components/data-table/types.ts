@@ -8,6 +8,9 @@ export interface DataTableProps<TData> {
 
   searchColumn?: string;
   searchPlaceholder?: string;
+
+  emptyTitle?: string;
+  emptyDescription?: string;
 }
 
 export interface DataTableToolbarProps<TData> {

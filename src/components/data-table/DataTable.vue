@@ -24,6 +24,7 @@ import {
 import DataTableToolbar from "./DataTableToolbar.vue";
 import DataTablePagination from "./DataTablePagination.vue";
 import DataTableSkeleton from "./DataTableSkeleton.vue";
+import DataTableEmpty from "./DataTableEmpty.vue";
 
 const props = defineProps<DataTableProps<TData>>();
 
@@ -110,16 +111,16 @@ const table = useVueTable({
           </template>
 
           <TableRow v-else>
-            <TableCell :colspan="props.columns.length" class="h-24 text-center">
-              No results.
+            <TableCell :colspan="props.columns.length" class="p-0">
+              <DataTableEmpty
+                :title="props.emptyTitle"
+                :description="props.emptyDescription"
+              />
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
     </div>
-    <DataTablePagination
-      v-if="!props.loading"
-      :table="table"
-    />
+    <DataTablePagination v-if="!props.loading" :table="table" />
   </div>
 </template>

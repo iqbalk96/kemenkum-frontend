@@ -33,39 +33,26 @@ const props = defineProps<Props<TData>>();
     </div>
 
     <div class="flex items-center gap-6">
-
       <!-- Rows per page -->
       <div class="flex items-center gap-2">
-        <p class="text-sm font-medium">
-          Rows per page
-        </p>
+        <p class="text-sm font-medium">Rows per page</p>
 
         <Select
           :model-value="`${table.getState().pagination.pageSize}`"
-          @update:model-value="
-            value => table.setPageSize(Number(value))
-          "
+          @update:model-value="(value) => table.setPageSize(Number(value))"
         >
           <SelectTrigger class="h-8 w-[80px]">
             <SelectValue />
           </SelectTrigger>
 
           <SelectContent>
-            <SelectItem value="10">
-              10
-            </SelectItem>
+            <SelectItem value="10"> 10 </SelectItem>
 
-            <SelectItem value="20">
-              20
-            </SelectItem>
+            <SelectItem value="20"> 20 </SelectItem>
 
-            <SelectItem value="50">
-              50
-            </SelectItem>
+            <SelectItem value="50"> 50 </SelectItem>
 
-            <SelectItem value="100">
-              100
-            </SelectItem>
+            <SelectItem value="100"> 100 </SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -84,7 +71,6 @@ const props = defineProps<Props<TData>>();
       <!-- Navigation -->
 
       <div class="flex items-center gap-2">
-
         <Button
           variant="outline"
           size="icon"
@@ -120,9 +106,7 @@ const props = defineProps<Props<TData>>();
         >
           <ChevronsRight class="h-4 w-4" />
         </Button>
-
       </div>
-
     </div>
   </div>
 </template>
