@@ -56,19 +56,13 @@ const onSubmit = form.handleSubmit((values) => {
     },
   });
 });
-
 </script>
 
 <template>
-  <form
-    :class="cn('flex flex-col gap-6', props.class)"
-    @submit="onSubmit"
-  >
+  <form :class="cn('flex flex-col gap-6', props.class)" @submit="onSubmit">
     <FieldGroup>
       <div class="flex flex-col items-center gap-1 text-center">
-        <h1 class="text-2xl font-bold">
-          Login to your account
-        </h1>
+        <h1 class="text-2xl font-bold">Login to your account</h1>
 
         <p class="text-muted-foreground text-sm text-balance">
           Enter your email below to login to your account
@@ -76,10 +70,7 @@ const onSubmit = form.handleSubmit((values) => {
       </div>
 
       <!-- Email -->
-      <FormField
-        v-slot="{ componentField }"
-        name="email"
-      >
+      <FormField v-slot="{ componentField }" name="email">
         <FormItem>
           <FormLabel>Email</FormLabel>
 
@@ -96,10 +87,7 @@ const onSubmit = form.handleSubmit((values) => {
       </FormField>
 
       <!-- Password -->
-      <FormField
-        v-slot="{ componentField }"
-        name="password"
-      >
+      <FormField v-slot="{ componentField }" name="password">
         <FormItem>
           <div class="flex items-center">
             <FormLabel>Password</FormLabel>
@@ -113,10 +101,7 @@ const onSubmit = form.handleSubmit((values) => {
           </div>
 
           <FormControl>
-            <Input
-              type="password"
-              v-bind="componentField"
-            />
+            <Input type="password" v-bind="componentField" />
           </FormControl>
 
           <FormMessage />
@@ -124,20 +109,13 @@ const onSubmit = form.handleSubmit((values) => {
       </FormField>
 
       <Field>
-        <Button
-          type="submit"
-          class="w-full"
-        >
-          Login
-        </Button>
+        <Button type="submit" class="w-full"> Login </Button>
       </Field>
 
       <!-- Demo Pinia -->
       <Field v-if="authStore.isAuthenticated">
         <div class="rounded-lg border bg-muted/50 p-4">
-          <p class="font-medium">
-            Login Success
-          </p>
+          <p class="font-medium">Login Success</p>
 
           <div class="mt-3 space-y-1 text-sm text-muted-foreground">
             <p>
@@ -161,17 +139,10 @@ const onSubmit = form.handleSubmit((values) => {
         </div>
       </Field>
 
-      <FieldSeparator>
-        Or continue with
-      </FieldSeparator>
+      <FieldSeparator> Or continue with </FieldSeparator>
 
       <Field>
-        <Button
-          type="button"
-          variant="outline"
-        >
-          Login with GitHub
-        </Button>
+        <Button type="button" variant="outline"> Login with GitHub </Button>
 
         <FieldDescription class="text-center">
           Don't have an account?

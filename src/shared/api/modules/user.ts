@@ -1,23 +1,23 @@
 import { api } from "../axios";
 
 export const UserApi = {
-    getAll() {
-        return api.get("/users");
-    },
+  getAll() {
+    return api.get("/users");
+  },
 
-    getById(id: number | string) {
-        return api.get(`/users/${id}`);
-    },
+  getById(id: number | string) {
+    return api.get(`/users/${id}`);
+  },
 
-    create(data: unknown) {
-        return api.post("/users", data);
-    },
+  create(data: unknown) {
+    return api.post("/users", data);
+  },
 
-    update(id: number | string, data: unknown) {
-        return api.put(`/users/${id}`, data);
-    },
+  update(id: number | string, data: unknown) {
+    return api.put(`/users/${id}`, data);
+  },
 
-    delete(id: number | string) {
-        return api.delete(`/users/${id}`);
-    },
+  delete(id: number | string) {
+    return api.delete(`/users/${id}`);
+  },
 };

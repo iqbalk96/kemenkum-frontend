@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { DataTable } from "@/components/data-table";
+import { h } from "vue";
+import { DataTable, DataTableColumnHeader } from "@/components/data-table";
+
 import type { ColumnDef } from "@tanstack/vue-table";
 
 interface User {
@@ -19,27 +21,43 @@ const data: User[] = [
     name: "Jane Doe",
     email: "jane@example.com",
   },
+  {
+    id: 3,
+    name: "Albert",
+    email: "albert@example.com",
+  },
 ];
 
 const columns: ColumnDef<User>[] = [
   {
     accessorKey: "id",
-    header: "ID",
+    header: ({ column }) =>
+      h(DataTableColumnHeader, {
+        column,
+        title: "ID",
+      }),
   },
   {
     accessorKey: "name",
-    header: "Name",
+    filterFn: "includesString",
+    header: ({ column }) =>
+      h(DataTableColumnHeader, {
+        column,
+        title: "Name",
+      }),
   },
   {
     accessorKey: "email",
-    header: "Email",
+    filterFn: "includesString",
+    header: ({ column }) =>
+      h(DataTableColumnHeader, {
+        column,
+        title: "Email",
+      }),
   },
 ];
 </script>
 
 <template>
-  <DataTable
-    :columns="columns"
-    :data="data"
-  />
+  <DataTable :columns="columns" :data="data" />
 </template>
