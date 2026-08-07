@@ -9,4 +9,12 @@ export const dashboardRoutes: RouteRecordRaw[] = [
       title: "Dashboard",
     },
   },
+  {
+    path: "/dashboard/create",
+    name: "dashboard-create",
+    component: () => import("@/features/dashboard/pages/UserForm.vue"),
+    meta: {
+      title: "User Create Form",
+    },
+  },
 ];
