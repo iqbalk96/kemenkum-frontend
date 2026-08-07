@@ -72,8 +72,8 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="space-y-4">
-    <DataTableToolbar :table="table" search-column="name" />
+  <div class="space-y-1">
+    <DataTableToolbar :table="table" search-column="header" />
 
     <DataTableSkeleton
       v-if="props.loading"
@@ -81,14 +81,19 @@ const table = useVueTable({
       :rows="10"
     />
 
-    <div v-else class="rounded-md border">
+    <div v-else class="rounded-lg border border-border overflow-hidden">
       <Table>
-        <TableHeader>
+        <TableHeader class="bg-muted/40">
           <TableRow
             v-for="headerGroup in table.getHeaderGroups()"
             :key="headerGroup.id"
+            class="border-b border-border hover:bg-transparent"
           >
-            <TableHead v-for="header in headerGroup.headers" :key="header.id">
+            <TableHead
+              v-for="header in headerGroup.headers"
+              :key="header.id"
+              class="h-11 px-4 text-xs font-medium text-muted-foreground first:pl-3"
+            >
               <FlexRender
                 v-if="!header.isPlaceholder"
                 :render="header.column.columnDef.header"
@@ -100,8 +105,16 @@ const table = useVueTable({
 
         <TableBody>
           <template v-if="table.getRowModel().rows.length">
-            <TableRow v-for="row in table.getRowModel().rows" :key="row.id">
-              <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
+            <TableRow
+              v-for="row in table.getRowModel().rows"
+              :key="row.id"
+              class="border-b border-border last:border-0 transition-colors hover:bg-muted/30"
+            >
+              <TableCell
+                v-for="cell in row.getVisibleCells()"
+                :key="cell.id"
+                class="py-2.5 px-4 text-sm first:pl-3"
+              >
                 <FlexRender
                   :render="cell.column.columnDef.cell"
                   :props="cell.getContext()"

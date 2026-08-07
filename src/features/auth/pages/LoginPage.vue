@@ -17,7 +17,7 @@ import LoginForm from "../components/LoginForm.vue";
           >
             <GalleryVerticalEnd class="size-4" />
           </div>
-          Acme Inc.
+          Kementerian Hukum RI
         </a>
       </div>
       <div class="flex flex-1 items-center justify-center">
