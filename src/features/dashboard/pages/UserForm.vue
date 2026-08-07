@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AppLayout from "@/app/layouts/AppLayout.vue";
 import AppCard from "@/components/ui/app-card/AppCard.vue";
+import Stepper from "../components/Stepper.vue";
+import StepBasicInformation from "../components/form/StepBasicInformation.vue";
 </script>
 
 <template>
@@ -9,8 +11,12 @@ import AppCard from "@/components/ui/app-card/AppCard.vue";
       title="Tambah Pengguna"
       description="Ikuti setiap langkah untuk melengkapi data pengguna."
     >
-      <h1>Stepper</h1>
-      <h2>User Form</h2>
+      <div class="mt-5">
+        <Stepper />
+      </div>
+
+      <!-- Steps 1 -->
+      <div class="mt-8"><StepBasicInformation /></div>
     </AppCard>
   </AppLayout>
 </template>
