@@ -16,7 +16,9 @@ import StepBasicInformation from "../components/form/StepBasicInformation.vue";
       </div>
 
       <!-- Steps 1 -->
-      <div class="mt-8"><StepBasicInformation /></div>
+      <div class="mt-8">
+        <StepBasicInformation />
+      </div>
     </AppCard>
   </AppLayout>
 </template>
