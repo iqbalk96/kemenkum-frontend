@@ -28,6 +28,18 @@ const steps = [
     description: "Periksa kembali seluruh informasi sebelum menyimpan",
   },
 ];
+
+const props = defineProps<{
+  modelValue: number;
+}>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", value: number): void;
+}>();
+
+const changeStep = (step: number) => {
+  emit("update:modelValue", step);
+};
 </script>
 
 <template>
@@ -46,6 +58,7 @@ const steps = [
 
       <StepperTrigger as-child>
         <Button
+          @click="changeStep(step.step)"
           :variant="
             state === 'completed' || state === 'active' ? 'default' : 'outline'
           "
